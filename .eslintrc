@@ -1,0 +1,8 @@
+{
+  "extends": ["standard", "standard-react"],
+  "globals": { "fetch": true }, 
+  "rules": { 
+    "semi": 0,
+    "space-before-function-paren": 0
+  } 
+}
