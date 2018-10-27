@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "eslint": "^5.7.0",
+    "lodash": "^4.17.11",
     "materialize-css": "^1.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
