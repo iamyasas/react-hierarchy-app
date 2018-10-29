@@ -1,23 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-const About = () => {
-  return (
-    <div className='row'>
-      <div className='col s12 m6'>
-        <div className='card blue-grey darken-1'>
-          <div className='card-content white-text'>
-            <span className='card-title'>Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div className='card-action'>
-            <a href='#'>This is a link</a>
-            <a href='#'>This is a link</a>
-          </div>
+class About extends Component {
+  componentDidMount() {
+    this.props.fetchPosts(1);
+  }
+
+  render() {
+    return (
+      <div style={styles.containerStyle} onScroll={this.handleScroll()}>
+        <h2>Infinite scroll</h2>
+        <div style={styles.divStyle}>
+          {this.renderPosts()}
         </div>
       </div>
-    </div>
-  );
+    )
+  };
+
+  handleScroll() {
+    // var element = event.target;
+    // if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+    //   console.log('scrolled');
+    // }
+    alert("scroll");
+  }
+
+  renderPosts() {
+    return this.props.post.map(singlePost =>
+      <h4 key={singlePost.id}>{singlePost.content}</h4>
+    )
+  };
 }
 
-export default About;
+const styles = {
+  containerStyle: {
+    marginTop: '50px',
+    height: '300px',
+    width: '500px'
+  },
+  divStyle: {
+    borderStyle: 'groove',
+    borderColor: 'red',
+    height: '300px',
+    overflow: 'auto'
+  }
+};
+
+const mapStateToProps = (state) => {
+  return {
+    post: state.post
+  };
+}
+
+export default connect(mapStateToProps, actions)(About);

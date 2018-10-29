@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class Landing extends Component {
+  componentDidMount() {
+    this.props.fetchUser({ orgID: 1, parent: 1 })
+  }
+
   renderAll() {
     return this.props.todo.map(org =>
       <div key={org.id}>
@@ -34,7 +38,7 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.props.fetchUser({ orgID: 1, parent: 1 })}>Call API</button>
+        {/* <button onClick={() => this.props.fetchUser({ orgID: 1, parent: 1 })}>Call API</button> */}
         <h2> Org Hierarchy </h2>
         {this.renderAll()}
       </div>
@@ -42,7 +46,7 @@ class Landing extends Component {
   };
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     todo: state.auth
   };

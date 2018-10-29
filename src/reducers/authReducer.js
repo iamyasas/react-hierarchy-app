@@ -2,7 +2,7 @@ import { FETCH_USER, RESET_DEPT_LIST } from '../actions/types';
 import _ from 'lodash';
 
 export default function (state = [], action) {
-  console.log(action);
+
   switch (action.type) {
     case FETCH_USER:
       return [...state, action.payload];
