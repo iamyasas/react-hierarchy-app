@@ -3,17 +3,8 @@ import React, { Component } from 'react'
 class Header extends Component {
   render () {
     return (
-      <nav>
-        <div className='nav-wrapper'>
-          <a className='left brand-logo'>
-            NCell
-          </a>
-          <ul className='right'>
-            <li>
-              <a>Login </a>
-            </li>
-          </ul>
-        </div>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+        <a className='navbar-brand' href='#'>NCell</a>
       </nav>
     )
   };

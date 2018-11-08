@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
 import Landing from './Landing';
 import About from './About';
-const Rave = () => <h2>Rave</h2>;
+import Rave from './Rave';
 
 const App = () => {
   return (
